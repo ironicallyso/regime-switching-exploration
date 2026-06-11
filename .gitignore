@@ -21,6 +21,10 @@
 # RStudio files
 .Rproj.user/
 
+# Project data (downloaded VIX history, model objects)
+data/
+*.rds
+
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
