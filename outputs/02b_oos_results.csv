@@ -1,0 +1,4 @@
+model,model_label,mean_qlike,mean_mse,dm_stat_vs_msgarch,dm_pvalue_vs_msgarch
+msgarch_2s_norm,2-regime MS-GARCH (normal),-4.194010851005832,3.2213826622256854e-4,NA,NA
+sgarch_norm,sGARCH (normal),-4.18820748204957,3.244527970583157e-4,-1.4568541909219486,0.14524529927789012
+sgarch_std,sGARCH (Student-t),-4.182649509986817,3.253814033081136e-4,-2.4180573341507605,0.015653772020607703
