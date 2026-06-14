@@ -445,6 +445,18 @@ cat("(Tiebreaker only — point forecasts of a persistent level are AR-dominated
 
 # ---- Save summary tables ----------------------------------------------------
 
+# Persist Phase 2.2's two key probability series for downstream reuse
+# (Phase 2.3 hysteresis pass) — previously in-memory only.
+oos_filtered <- oos |> dplyr::select(date, vix_close, filt_prob_high)
+oos_filtered_path <- versioned_path(OUTPUT_DIR, "02c_oos_filtered", "csv")
+readr::write_csv(oos_filtered, oos_filtered_path)
+cat(sprintf("Saved: %s\n", oos_filtered_path))
+
+full_sample_probs <- probs1 |> dplyr::select(date, filt_prob_high, smooth_prob_high)
+full_sample_probs_path <- versioned_path(OUTPUT_DIR, "02c_full_sample_probs", "csv")
+readr::write_csv(full_sample_probs, full_sample_probs_path)
+cat(sprintf("Saved: %s\n", full_sample_probs_path))
+
 summarize_fit <- function(fit, model_name) {
   high <- label_high_fear_state(fit)
   low <- setdiff(1:2, high)
